@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  rinhadb:
+      image: mariadb:latest
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: rinha_db
+        MYSQL_USER: rinha_user
+        MYSQL_PASSWORD: rinha2023
+      command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+      networks:
+        - rinha_backend2023_q3_java_network
+
+networks:
+  rinha_backend2023_q3_java_network:
+#    external: true
