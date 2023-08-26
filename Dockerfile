@@ -2,15 +2,8 @@ FROM ubuntu:latest
 
 LABEL maintainer="Luiz Henrique Rossetti <luiz.rossetti@gmail.com>"
 
-
-# docker build -t ro7luiz/compilers:latest .
-# or
-# docker tag <image_id> ro7luiz/compilers:latest
-# docker image build . -t compilers
-
-
-# docker push ro7luiz/compilers
-# docker run -it compilers
+#docker build --no-cache -t rinha-image  .
+#winpty docker run -it rinha-backend-2023-q3-java bash
 
 ARG JAVA_VERSION="17.0.8-tem"
 ARG MAVEN_VERSION="3.6.3"
