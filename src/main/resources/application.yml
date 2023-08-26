@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:9999}
+  port: ${PORT:8080}
   tomcat:
     connection-timeout: 120000 # Tempo limite de conexão (em milissegundos)
     max-connections: 1000  # Número máximo de conexões simultâneas
@@ -30,33 +30,17 @@ spring:
 
   jpa:
     open-in-view: false
-    show_sql: false
-    properties:
-      hibernate:
-        ddl-auto: none
-        format_sql: false
-        enable_lazy_load_no_trans: true
-      jakarta:
-        persistence:
-          schema-generation:
-            create-source: metadata
-            scripts:
-#              action: none
-#              action: create
-#              create-target: src/main/resources/db/migration/V1__rinha_db_schema_create.sqltruncate pessoa;
-#              drop-target: src/main/resources/db/migration/V1__rinha_db_schema_drop.sql
-    database-platform: org.hibernate.dialect.MariaDBDialect
-#  flyway:
-#    enabled: true
-#    clean-disabled: true
+    show_sql: true
+    hibernate:
+      ddl-auto: update
 
 logging:
   level:
     org.springframework.boot.autoconfigure.logging: info
     org.springframework.web: info
     org.springframework.jdbc: info
-    org.springframework.data: info
-    com.zaxxer.hikari: info
+    org.springframework.data: debug
+    com.zaxxer.hikari: debug
     redis.clients.jedis: debug
     com.luizrossetti.rinhabackend2023q3java: debug
     org.springframework.web.filter.CommonsRequestLoggingFilter: debug

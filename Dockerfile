@@ -32,5 +32,15 @@ ENV PATH="$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH"
 # Define working directory.
 WORKDIR /app
 
+RUN git clone https://github.com/luizrossetti/rinha-backend-2023-q3-java.git
+
+WORKDIR /app/rinha-backend-2023-q3-java
+
+RUN mvn clean install
+
+EXPOSE 8080
+
 # Define default command.
 CMD ["bash"]
+
+ENTRYPOINT [ "java", "-XX:+UseParallelGC", "-XX:MaxRAMPercentage=75", "-jar", "./target/rinha-backend-2023-q3-java-0.0.1.jar" ]
